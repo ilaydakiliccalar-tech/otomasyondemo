@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanat Merkezi - Randevu Takip Otomasyonu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Sanat<span>Merkezi</span></div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Ana Sayfa</a></li>
+            <li><a href="#">Randevularım</a></li>
+            <li><a href="#">Kurslar</a></li>
+            <li><a href="#">Profil</a></li>
+        </ul>
+        <div class="user-info">
+            <span>Hoş geldin, İlayda</span>
+            <img src="https://via.placeholder.com/40" alt="Avatar" class="avatar">
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="dashboard-header">
+            <h1>Randevu Takip Paneli</h1>
+            <p>Sanat yolculuğundaki programını buradan yönetebilirsin.</p>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Toplam Ders</h3>
+                <p class="stat-value">12</p>
+                <span class="stat-desc">Bu ay</span>
+            </div>
+            <div class="stat-card">
+                <h3>Bekleyen Randevu</h3>
+                <p class="stat-value">3</p>
+                <span class="stat-desc">Gelecek 7 gün</span>
+            </div>
+            <div class="stat-card">
+                <h3>Tamamlanan</h3>
+                <p class="stat-value">45</p>
+                <span class="stat-desc">Toplam</span>
+            </div>
+        </section>
+
+        <section class="appointment-section">
+            <div class="section-header">
+                <h2>Yaklaşan Randevular</h2>
+                <button class="btn-primary" id="newAppointment">Yeni Randevu Al</button>
+            </div>
+            <div class="appointment-list">
+                <div class="appointment-item">
+                    <div class="app-info">
+                        <h4>Yağlı Boya Atölyesi</h4>
+                        <span>15 Mayıs 2026 - 14:00</span>
+                    </div>
+                    <div class="app-status confirmed">Onaylandı</div>
+                    <button class="btn-outline">Detay</button>
+                </div>
+                <div class="appointment-item">
+                    <div class="app-info">
+                        <h4>Piyano Eğitimi</h4>
+                        <span>18 Mayıs 2026 - 10:30</span>
+                    </div>
+                    <div class="app-status pending">Beklemede</div>
+                    <button class="btn-outline">Detay</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Yeni Randevu Oluştur</h2>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label>Sanat Dalı</label>
+                    <select>
+                        <option>Resim</option>
+                        <option>Müzik</option>
+                        <option>Heykel</option>
+                        <option>Tiyatro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Eğitmen</label>
+                    <select>
+                        <option>Ahmet Yılmaz</option>
+                        <option>Ayşe Demir</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tarih ve Saat</label>
+                    <input type="datetime-local">
+                </div>
+                <button type="submit" class="btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
