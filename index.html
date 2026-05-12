@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanat Merkezi | Yönetim Paneli</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <div class="app-wrapper">
+        <!-- Sol Menü -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="logo">Sanat<span>Yönetim</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#stats" class="active"><span class="icon">📊</span> Genel Bakış</a>
+                <a href="#students"><span class="icon">👥</span> Öğrenci Yönetimi</a>
+                <a href="#teachers"><span class="icon">🎓</span> Eğitmen Kadrosu</a>
+                <a href="#courses"><span class="icon">🎨</span> Aktif Dersler</a>
+                <a href="#earnings"><span class="icon">💰</span> Finansal Rapor</a>
+            </nav>
+            <div class="sidebar-footer">
+                <p>İlayda Kılıçlar</p>
+                <span>Sistem Yöneticisi</span>
+            </div>
+        </aside>
+
+        <!-- Ana İçerik -->
+        <main class="main-content">
+            <header class="top-header">
+                <h1>Yönetim Merkezi</h1>
+                <div class="header-actions">
+                    <button class="btn-primary" onclick="showModal('userModal')">+ Yeni Öğrenci</button>
+                    <button class="btn-secondary" onclick="showModal('teacherModal')">+ Yeni Eğitmen</button>
+                </div>
+            </header>
+
+            <!-- İstatistik Kartları -->
+            <section class="stats-grid" id="stats">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Toplam Kazanç</h3>
+                        <p class="value" id="total-earnings">₺18.250</p>
+                    </div>
+                    <div class="stat-chart-mini">📈 +12%</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Kayıtlı Öğrenci</h3>
+                        <p class="value" id="student-count">0</p>
+                    </div>
+                    <div class="stat-icon student-bg">👥</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Aktif Eğitmen</h3>
+                        <p class="value" id="teacher-count">0</p>
+                    </div>
+                    <div class="stat-icon teacher-bg">🎓</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Aktif Kurs</h3>
+                        <p class="value">14</p>
+                    </div>
+                    <div class="stat-icon course-bg">🎨</div>
+                </div>
+            </section>
+
+            <div class="dashboard-grid">
+                <!-- Öğrenci Listesi -->
+                <section class="panel-card" id="students">
+                    <div class="panel-header">
+                        <h2>Kayıtlı Öğrenciler</h2>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Öğrenci Adı</th>
+                                    <th>Branş</th>
+                                    <th>Kayıt Tarihi</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody id="student-table-body">
+                                <!-- Dinamik -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Kazanç Grafiği -->
+                <section class="panel-card" id="earnings">
+                    <div class="panel-header">
+                        <h2>Aylık Kazanç Analizi</h2>
+                    </div>
+                    <div class="chart-wrapper">
+                        <div class="bar-chart">
+                            <div class="bar-col"><div class="bar" style="height: 40%"><span>4K</span></div><label>Oca</label></div>
+                            <div class="bar-col"><div class="bar" style="height: 60%"><span>9K</span></div><label>Şub</label></div>
+                            <div class="bar-col"><div class="bar" style="height: 50%"><span>7K</span></div><label>Mar</label></div>
+                            <div class="bar-col"><div class="bar" style="height: 85%"><span>15K</span></div><label>Nis</label></div>
+                            <div class="bar-col"><div class="bar" style="height: 75%"><span>12K</span></div><label>May</label></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="dashboard-grid second-row">
+                <!-- Eğitmen Listesi -->
+                <section class="panel-card" id="teachers">
+                    <div class="panel-header">
+                        <h2>Eğitmen Kadrosu</h2>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Eğitmen</th>
+                                    <th>Uzmanlık</th>
+                                    <th>Durum</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teacher-table-body">
+                                <!-- Dinamik -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Aktif Dersler -->
+                <section class="panel-card" id="courses">
+                    <div class="panel-header">
+                        <h2>Aktif Ders Programı</h2>
+                    </div>
+                    <div class="course-list" id="course-list-body">
+                        <div class="course-item">
+                            <div class="c-info">
+                                <h4>Yağlı Boya Atölyesi</h4>
+                                <p>Selin Yurt • Pazartesi 14:00</p>
+                            </div>
+                            <span class="c-badge">8 Öğrenci</span>
+                        </div>
+                        <div class="course-item">
+                            <div class="c-info">
+                                <h4>Piyano (İleri Seviye)</h4>
+                                <p>Murat Demir • Salı 10:00</p>
+                            </div>
+                            <span class="c-badge">3 Öğrenci</span>
+                        </div>
+                        <div class="course-item">
+                            <div class="c-info">
+                                <h4>Dijital İllüstrasyon</h4>
+                                <p>Ayşe Ak • Çarşamba 18:30</p>
+                            </div>
+                            <span class="c-badge">12 Öğrenci</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODALLAR -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('userModal')">&times;</span>
+            <h3>Yeni Öğrenci Kaydı</h3>
+            <form id="studentForm">
+                <input type="text" id="sName" placeholder="Öğrenci Ad Soyad" required>
+                <select id="sBranch">
+                    <option>Resim</option>
+                    <option>Piyano</option>
+                    <option>Gitar</option>
+                    <option>Keman</option>
+                </select>
+                <button type="submit" class="btn-primary">Kaydı Tamamla</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="teacherModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('teacherModal')">&times;</span>
+            <h3>Yeni Eğitmen Ekle</h3>
+            <form id="teacherForm">
+                <input type="text" id="tName" placeholder="Eğitmen Ad Soyad" required>
+                <input type="text" id="tExpert" placeholder="Uzmanlık Alanı" required>
+                <button type="submit" class="btn-primary">Eğitmeni Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
